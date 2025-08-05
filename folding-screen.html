@@ -1,0 +1,261 @@
+<script src="http://www.xn--o70bn1ek9soa69y.kr/html/js/jquery-1.11.3.min.js"></script>
+
+<!-- 병풍 시작 -->
+<ul class="folding sa sa-up" id="sa_04">
+  <li class="folding_cont on" data-sa-trigger="#sa_04" data-sa-delay="200"
+    onclick="location.href='/bbs/content.php?co_id=classicwedding'">
+    <p class="folding_title">Sensible Design</p>
+    <p>01 감각적인 디자인</p>
+    <p class="folding_toggle">트렌드를 선도하는 혁신적인 설계로 당신만의 특별한 공간을 만듭니다.
+공간의 가치를 높이는 감각적인 디자인으로 새로운 라이프스타일을 제안합니다.</p>
+    <p class="detail_btn"><a href="/bbs/content.php?co_id=classicwedding">자세히보기 <span>+</span></a></p>
+  </li>
+  <li class="folding_cont" data-sa-trigger="#sa_04" data-sa-delay="200"
+    onclick="location.href='/bbs/content.php?co_id=heunmin'">
+    <p class="folding_title">Safety First</p>
+    <p>02 안전을 최우선으로</p>
+    <p class="folding_toggle">30년 노하우를 바탕으로 한 철저한 안전 관리 시스템을 구축합니다.
+설계부터 시공까지 완벽한 품질 관리로 안전한 건축물을 약속드립니다.</p>
+    <p class="detail_btn"><a href="/bbs/content.php?co_id=heunmin">자세히보기 <span>+</span></a></p>
+  </li>
+  <li class="folding_cont" data-sa-trigger="#sa_04" data-sa-delay="200"
+    onclick="location.href='/bbs/content.php?co_id=samtae'">
+    <p class="folding_title">Solid Ground</p>
+    <p>03 지반을 튼튼히</p>
+    <p class="folding_toggle">첨단 지반 분석 시스템으로 완벽한 기초 공사를 실현합니다.
+과학적인 분석과 검증된 공법으로 100년을 바라보는 단단한 기초를 만듭니다.</p>
+    <p class="detail_btn"><a href="/bbs/content.php?co_id=samtae">자세히보기 <span>+</span></a></p>
+  </li>
+  <li class="folding_cont" data-sa-trigger="#sa_04" data-sa-delay="200"
+    onclick="location.href='/bbs/content.php?co_id=galleryson'">
+    <p class="folding_title">Premium Interior</p>
+    <p>04 최상급 인테리어</p>
+    <p class="folding_toggle">업계 최고의 전문가들이 모여 프리미엄 인테리어를 선보입니다.
+섬세한 디테일과 고품격 자재로 품격 있는 공간을 완성합니다.</p>
+    <p class="detail_btn"><a href="/bbs/content.php?co_id=galleryson">자세히보기 <span>+</span></a></p>
+  </li>
+</ul>
+
+<script>
+  // 스크롤시 라이프 스타일 이미지 변경 이벤트
+  const saDefaultMargin = 300;
+  let saTriggerMargin = 0;
+  let saTriggerHeight = 0;
+  const saElementList = document.querySelectorAll('.sa');
+
+  const saFunc = function () {
+    for (const element of saElementList) {
+      if (!element.classList.contains('show')) {
+        if (element.dataset.saMargin) {
+          saTriggerMargin = parseInt(element.dataset.saMargin);
+        } else {
+          saTriggerMargin = saDefaultMargin;
+        }
+
+        if (element.dataset.saTrigger) {
+          saTriggerHeight = document.querySelector(element.dataset.saTrigger).getBoundingClientRect().top + saTriggerMargin;
+        } else {
+          saTriggerHeight = element.getBoundingClientRect().top + saTriggerMargin;
+        }
+        // 스크롤 위치에 따라 show 클래스 추가
+        if (window.innerHeight > saTriggerHeight) {
+          let delay = (element.dataset.saDelay) ? element.dataset.saDelay : 0;
+          setTimeout(function () {
+            element.classList.add('show');
+          }, delay);
+        }
+      }
+    }
+  }
+
+  window.addEventListener('load', saFunc);
+  window.addEventListener('scroll', saFunc);
+</script>
+
+<script>
+  $(".folding_cont").hover(function () {
+    $(".folding_cont").removeClass("on");
+    $(this).addClass("on");
+    $(".folding_cont").css({ "width": "19.5%" });
+    $(this).css({ "width": "40%" });
+    $(".folding_cont").children(".folding_toggle").css('display', 'none');
+    $(this).children(".folding_toggle").slideDown();
+  });
+</script>
+<!-- 병풍 끝 -->
+
+
+<style>
+  p {margin:0;padding:0;word-break:break-all}
+  
+  a {
+    color: #000;
+    text-decoration: none
+  }
+
+  /* 홀 병풍 시작 */
+  .folding {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+  }
+
+  .folding li {
+    width: 19.5%;
+    float: left;
+    padding: 180px 90px 0 90px;
+    height: 935px;
+    transition: all .3s;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .folding_title {
+    height: 755px;
+    font-family: 'Playfair Display', sans-serif;
+  }
+
+  .folding_title:before {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 300px;
+    position: absolute;
+    left: 80%;
+    bottom: 0;
+    margin-left: -20px;
+    background-color: #fff;
+  }
+
+  .folding .folding_cont:first-child {
+    background-image: linear-gradient(90deg,
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.0)),
+      url("https://cdn.imweb.me/upload/S20250120429424818d2a4/0e1692e04c447.jpg");
+    background-position: center;
+  }
+
+  .folding .folding_cont:nth-child(2) {
+    background-image: linear-gradient(90deg,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.0)),
+      url("https://cdn.imweb.me/upload/S20250120429424818d2a4/9d69ba29a70bb.jpg");
+    background-position: center;
+  }
+
+  .folding .folding_cont:nth-child(3) {
+    background-image: linear-gradient(90deg,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.0)),
+      url("https://cdn.imweb.me/upload/S20250120429424818d2a4/e91a6b51eb423.jpg");
+    background-position: center;
+  }
+
+  .folding .folding_cont:last-child {
+    background-image: linear-gradient(90deg,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.0)),
+      url("https://cdn.imweb.me/upload/S20250120429424818d2a4/18c9ec1ce6d17.jpg");
+    background-position: center;
+  }
+
+  .folding .folding_cont p:first-child {
+    transform: rotate(0deg);
+    font-size: 42px;
+    color: #fff;
+    padding-bottom: 45px;
+  }
+
+  .folding .folding_cont p:nth-child(2) {
+    font-size: 19px;
+    color: #fff;
+    padding-bottom: 54px;
+
+  }
+
+  .folding .folding_cont p:first-child,
+  .folding .folding_cont p:nth-child(2) {
+    writing-mode: tb-rl;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    padding-top: 45px;
+  }
+
+  .folding .folding_cont p:nth-child(3) {
+    font-size: 17px;
+    color: #fff;
+    padding-bottom: 108px;
+    height: 180px;
+    display: none;
+  }
+
+  .folding .folding_cont p:nth-child(4) {
+    margin-bottom: 200px;
+    display: none;
+  }
+
+  .folding .on {
+    width: 40%;
+  }
+
+  .folding .on:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .folding .on .folding_title {
+    height: unset;
+  }
+
+  .folding .on .folding_title:before {
+    display: none;
+  }
+
+  .folding .on p:first-child,
+  .folding .on p:nth-child(2) {
+    writing-mode: unset;
+    transform: unset;
+    text-align: left;
+    display: block;
+    width: unset;
+  }
+
+  .folding .on p:nth-child(3) {
+    width: 581px;
+  }
+
+  .folding .on p:nth-child(4) {
+    display: block;
+  }
+
+  /* 홀 병풍 끝 */
+
+  .detail_btn {
+    width: 160px;
+    border-bottom: solid 1px #fff;
+  }
+
+  .detail_btn,
+  .detail_btn a {
+    color: #fff;
+  }
+
+  .detail_btn span {
+    float: right;
+    margin-right: 10px;
+  }
+
+  .detail_btn:hover span {
+    transform: rotate(-360deg);
+    transition: all .5s;
+  }
+</style>

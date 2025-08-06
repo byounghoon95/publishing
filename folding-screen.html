@@ -129,11 +129,18 @@
     background-color: #fff;
   }
 
+  /* 사진 작으면 잘리는거 대응 */
+  .folding .folding_cont {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
   .folding .folding_cont:first-child {
     background-image: linear-gradient(90deg,
         rgba(0, 0, 0, 0.7),
         rgba(0, 0, 0, 0.0)),
-      url("https://cdn.imweb.me/upload/S20250120429424818d2a4/0e1692e04c447.jpg");
+      url("https://cdn.imweb.me/thumbnail/20250803/a30bb46f03a4f.png");
     background-position: center;
   }
 

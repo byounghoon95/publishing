@@ -1,0 +1,34 @@
+<div class="circlelogocontain">
+  <img
+    class="circlelogo"
+    src="../etc/logo.png"
+  />
+</div>
+
+<style>
+  .circlelogocontain {
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    right: 100px;
+    bottom: 100px;
+    z-index: 9999;
+  }
+
+  .circlelogo {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<script>
+  window.addEventListener("scroll", function () {
+    var logo = document.querySelector(".circlelogo");
+
+    var scrollPos = window.scrollY;
+
+    var rotation = -scrollPos / 10;
+
+    logo.style.transform = "rotate(" + rotation + "deg)";
+  });
+</script>

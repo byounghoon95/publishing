@@ -1,0 +1,106 @@
+<div class="txtanimation">
+  <div id="slider">
+    <div class="span">아임웹 코드</div>
+    <div class="span" id="sliderValue"></div>
+  </div>
+</div>
+
+<style> .txtanimation {
+     font-family: "Ubuntu", sans-serif;
+     margin: 0 auto;
+     background-color: #191a1e;
+     color: white;
+     min-height: 100vh;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+ #slider {
+     width: 800px;
+     display: flex;
+     gap: 15px;
+     font-size: 30px;
+}
+ #sliderValue {
+     display: flex;
+     color: #0077ee;
+     font-weight: 700;
+}
+ .start {
+     opacity: 0;
+}
+ .animation {
+     animation: fade 0.3s forwards;
+}
+ @keyframes fade {
+     0% {
+         opacity: 0;
+         transform: translateY(20px);
+    }
+     100% {
+         opacity: 1;
+         transform: translateY(0px);
+    }
+}
+ .holder-animation {
+     animation: holder 4s;
+}
+ @keyframes holder {
+     0% {
+         opacity: 1;
+    }
+     95% {
+         opacity: 1;
+    }
+     100% {
+         opacity: 0;
+    }
+}
+ </style>
+
+<script>
+  var sliderCounter = 0;
+  var sliderContent = [
+    "텍스트 애니메이션",
+    "하단 고정형 입력폼",
+    "갤러리 애니메이션",
+    "게시판 검색창",
+  ];
+
+  var slider = document.querySelector("#slider");
+  var sliderValue = document.querySelector("#sliderValue");
+
+  function slide() {
+    if (sliderCounter >= sliderContent.length) {
+      sliderCounter = 0;
+    }
+
+    sliderValue.innerHTML = "";
+
+    sliderValue.classList.remove("holder-animation");
+
+    void sliderValue.offsetWidth;
+
+    sliderValue.classList.add("holder-animation");
+
+    for (let i = 0; i < sliderContent[sliderCounter].length; i++) {
+      let letterDiv = document.createElement("div");
+      let char = sliderContent[sliderCounter][i];
+      if (char == " ") {
+        letterDiv.innerHTML = "&nbsp;";
+      } else {
+        letterDiv.textContent = char;
+      }
+      letterDiv.classList.add("start");
+      letterDiv.classList.add("animation");
+      letterDiv.style.animationDelay = i / 10 + "s";
+      sliderValue.appendChild(letterDiv);
+    }
+
+    sliderCounter++;
+  }
+
+  slide();
+
+  setInterval(slide, 4000);
+</script>

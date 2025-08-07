@@ -1,0 +1,225 @@
+<div class="cardsection23">
+  <div class="card">
+    <input type="radio" name="select" id="slide_1" checked>
+    <input type="radio" name="select" id="slide_2">
+    <input type="radio" name="select" id="slide_3">
+    <input type="checkbox" id="slideImg">
+
+    <div class="slider">
+      <label for="slide_1" class="slide slide_1"></label>
+      <label for="slide_2" class="slide slide_2"></label>
+      <label for="slide_3" class="slide slide_3"></label>
+    </div>
+    <div class="inner_part">
+      <label for="slideImg" class="img">
+        <img class="img_1" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/08c741be731f3.png">
+      </label>
+      <div class="content content_1">
+        <div class="title">이미지 카드 섹션</div>
+        <div class="text">
+          아임웹 코드를 사용하면 이렇게 다양한 형태의 카드 슬라이드 애니메이션을 구성하실 수 있습니다.
+        </div>
+        <button class="cardbtn">Read More</button>
+      </div>
+    </div>
+    <div class="inner_part">
+      <label for="slideImg" class="img">
+        <img class="img_2" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/e0eddacca04e6.png">
+      </label>
+      <div class="content content_2">
+        <div class="title">아임웹 코드</div>
+        <div class="text">
+          코드 위젯의 script는 아임웹 Starter 이상의 요금제에서 사용이 가능합니다
+        </div>
+        <button class="cardbtn">Read More</button>
+      </div>
+    </div>
+    <div class="inner_part">
+      <label for="slideImg" class="img">
+        <img class="img_3" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/c1363454a5463.png">
+      </label>
+      <div class="content content_3">
+        <div class="title">다양한 애니메이션을 추가하세요</div>
+        <div class="text">홈페이지에 다양한 애니메이션을 추가하여 방문하고 싶은 홈페이지를 구성해보세요
+        </div>
+        <button class="cardbtn">Read More</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .cardsection23 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .card {
+    position: absolute;
+    height: 350px;
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+    background-color: #ffffff;
+    border-radius: 25px;
+    box-shadow: 10px 0 50px rgba(0, 0, 0, 0.5);
+  }
+
+  .card .inner_part {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 0 30px;
+    height: 350px;
+    position: absolute;
+  }
+
+  #slideImg:checked~.inner_part {
+    padding: 0;
+    transition: .1s ease-in;
+  }
+
+  .inner_part .img {
+    height: 260px;
+    width: 260px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border-radius: 20px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+  }
+
+  #slideImg:checked~.inner_part .img {
+    height: 350px;
+    width: 850px;
+    z-index: 99;
+    transition: .3s .2s ease-in;
+  }
+
+  .img img {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    opacity: 0;
+    transition: .6s;
+  }
+
+  #slide_1:checked~.inner_part .img_1,
+  #slide_2:checked~.inner_part .img_2,
+  #slide_3:checked~.inner_part .img_3 {
+    opacity: 1;
+    transition-delay: .2s;
+  }
+
+  .content {
+    padding: 0 20px 0 35px;
+    width: 530px;
+    margin-left: 50px;
+    opacity: 0;
+    transition: .6s;
+  }
+
+  #slideImg:checked~.inner_part .content {
+    display: none;
+  }
+
+  #slide_1:checked~.inner_part .content_1,
+  #slide_2:checked~.inner_part .content_2,
+  #slide_3:checked~.inner_part .content_3 {
+    opacity: 1;
+    margin-left: 0;
+    z-index: 100;
+    transition-delay: .3s;
+  }
+
+  .content .title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #0d0925;
+    margin: 0 0 20px 0;
+  }
+
+  .content .text {
+    font-size: 19px;
+    color: #4e4a67;
+    margin: 0 auto 30px auto;
+    line-height: 1.5em;
+    text-align: justify;
+  }
+
+  .cardbtn {
+    padding: 15px 20px;
+    border: none;
+    font-size: 16px;
+    color: #fff0e6;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    cursor: pointer;
+    outline: none;
+    background: #000000;
+    float: right;
+  }
+
+  .cardbtn:hover {
+    background: #cecece;
+    color: #000000;
+  }
+
+  .slider {
+    position: absolute;
+    bottom: 25px;
+    left: 55%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  #slideImg:checked~.slider {
+    display: none;
+  }
+
+  .slider .slide {
+    position: relative;
+    height: 10px;
+    width: 50px;
+    background: #d9d9d9;
+    border-radius: 5px;
+    display: inline-flex;
+    margin: 0 3px;
+    cursor: pointer;
+  }
+
+  .slider .slide:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: -100%;
+    background: #000000;
+    ;
+    border-radius: 10px;
+    transform: scaleX(0);
+    transition: transform .6s;
+    transform-origin: left;
+  }
+
+  #slide_1:checked~.slider .slide_1:before,
+  #slide_2:checked~.slider .slide_2:before,
+  #slide_3:checked~.slider .slide_3:before {
+    transform: scaleX(1);
+    width: 100%;
+  }
+
+  input {
+    display: none;
+  }
+</style>

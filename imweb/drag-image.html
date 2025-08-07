@@ -1,0 +1,197 @@
+<!-- https://m-apping.com/57/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=18119371&t=board -->
+
+<div class="body">
+    <div class="Container">
+        <div class="Picture">
+            <img class="Picture-img" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/04f02c249dac2.png"
+                alt="" />
+            <div class="Picture-note"><span>아임웹 코드 문의는 홈페이지 우측 하단</span></div>
+        </div>
+        <div class="Picture">
+            <img class="Picture-img" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/2b425bcd6eeae.png"
+                alt="" />
+            <div class="Picture-note"><span>이미지 및 문구 입력1</span></div>
+        </div>
+        <div class="Picture">
+            <img class="Picture-img" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/f25c0a26a72ee.png"
+                alt="" />
+            <div class="Picture-note"><span>이미지 및 문구 입력2</span></div>
+        </div>
+        <div class="Picture">
+            <img class="Picture-img" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/09074a5335dd0.png"
+                alt="" />
+            <div class="Picture-note"><span>이미지 및 문구 입력3</span></div>
+        </div>
+        <div class="Picture">
+            <img class="Picture-img" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/08c741be731f3.png"
+                alt="" />
+            <div class="Picture-note"><span>이미지 및 문구 입력4</span></div>
+        </div>
+        <div class="Picture">
+            <img class="Picture-img" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/e0eddacca04e6.png"
+                alt="" />
+            <div class="Picture-note"><span>이미지 및 문구 입력5</span></div>
+        </div>
+        <div class="Picture">
+            <img class="Picture-img" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/de750590b37f8.png"
+                alt="" />
+            <div class="Picture-note"><span>이미지 및 문구 입력6</span></div>
+        </div>
+        <div class="Picture">
+            <img class="Picture-img" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/879e1581f0049.png"
+                alt="" />
+            <div class="Picture-note"><span>이미지 및 문구 입력7</span></div>
+        </div>
+        <div class="Picture">
+            <img class="Picture-img" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/c1363454a5463.png"
+                alt="" />
+            <div class="Picture-note"><span>이미지 및 문구 입력8</span></div>
+        </div>
+        <div class="Picture">
+            <img class="Picture-img" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/879a20404c1b6.png"
+                alt="" />
+            <div class="Picture-note"><span>이미지 및 문구 입력9</span></div>
+        </div>
+        <div class="Picture">
+            <img class="Picture-img" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/21522b55867f5.png"
+                alt="" />
+            <div class="Picture-note"><span>이미지 및 문구 입력10</span></div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .Container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+
+    .Picture {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 5px solid #fff;
+        border-radius: 3px;
+        background: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        transform: translate(-50%, -50%);
+        user-select: none;
+        cursor: pointer;
+    }
+
+    .Picture-img {
+        display: block;
+        width: 300px;
+        height: 300px;
+        pointer-events: none;
+    }
+
+    .Picture-note {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 300px;
+        height: 70px;
+        padding: 12px 24px;
+        font-size: 1.5rem;
+        text-align: center;
+        color: black;
+    }
+
+    .Network {
+        display: inline-block;
+        padding: 0 5px;
+    }
+
+    .Network img {
+        width: 1.5rem;
+        aspect-ratio: 1 / 1;
+        vertical-align: middle;
+    }
+
+    /* --------------------- */
+    /* Other styles */
+    /* --------------------- */
+    * {
+        box-sizing: border-box;
+    }
+
+    .body {
+        margin: 0;
+        font-family: 'Caveat', serif;
+        overflow: hidden;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .Me {
+        position: fixed;
+        z-index: 15;
+        bottom: 20px;
+        left: 50%;
+        color: #111;
+        transform: translateX(-50%);
+        font-weight: 700;
+        text-align: center;
+        opacity: 0.7;
+    }
+</style>
+
+<script>
+
+    const pictures = document.querySelectorAll('.Picture');
+    var previousTouch = undefined;
+
+    function updateElementPosition(element, event) {
+        var movementX, movementY;
+        if (event.type === 'touchmove') {
+            const touch = event.touches[0];
+            movementX = previousTouch ? touch.clientX - previousTouch.clientX : 0;
+            movementY = previousTouch ? touch.clientY - previousTouch.clientY : 0;
+            previousTouch = touch;
+        } else {
+            movementX = event.movementX;
+            movementY = event.movementY;
+        }
+
+        const elementY = parseInt(element.style.top || 0) + movementY;
+        const elementX = parseInt(element.style.left || 0) + movementX;
+
+        element.style.top = elementY + "px";
+        element.style.left = elementX + "px";
+    }
+
+
+
+    function startDrag(element, event) {
+        const updateFunction = (event) => updateElementPosition(element, event);
+        const stopFunction = () => stopDrag({ update: updateFunction, stop: stopFunction });
+        document.addEventListener("mousemove", updateFunction);
+        document.addEventListener("touchmove", updateFunction);
+        document.addEventListener("mouseup", stopFunction);
+        document.addEventListener("touchend", stopFunction);
+    }
+
+    function stopDrag(functions) {
+        previousTouch = undefined;
+        document.removeEventListener("mousemove", functions.update);
+        document.removeEventListener("touchmove", functions.update);
+        document.removeEventListener("mouseup", functions.stop);
+        document.removeEventListener("touchend", functions.stop);
+    }
+
+    pictures.forEach(picture => {
+        const range = 100;
+        const randomX = Math.random() * (range * 2) - range;
+        const randomY = Math.random() * (range * 2) - range;
+        const randomRotate = Math.random() * (range / 2) - range / 4;
+        const startFunction = (event) => startDrag(picture, event);
+        picture.style.top = `${randomY}px`;
+        picture.style.left = `${randomX}px`;
+        picture.style.transform = `translate(-50%, -50%) rotate(${randomRotate}deg)`;
+        picture.addEventListener("mousedown", startFunction);
+        picture.addEventListener("touchstart", startFunction);
+    });
+</script>

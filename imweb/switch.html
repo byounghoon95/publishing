@@ -1,0 +1,150 @@
+<!-- http://m-apping.com/57/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=18105408&t=board -->
+<div class="switchcontainer">
+    <div class="switch"></div>
+    <div class="turnon">
+        <img class="turonimg" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/848326fcfafd8.png">
+    </div>
+    <div class="turnoff">
+        <img class="turoffimg" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/3a2a402fe100a.png">
+    </div>
+</div>
+
+<style>
+    .switchcontainer {
+        position: relative;
+        width: 50%;
+        height: 400px;
+    }
+
+    .turnon {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+
+    .turnoff {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .turoffimg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .turonimg {
+        width: 100%;
+        height: 100%;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    .switch {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.1s ease-out;
+        width: 97px;
+        height: 97px;
+        z-index: 1;
+        border-radius: 50%;
+        background: linear-gradient(to top, #eeeeee, #e6e1df);
+        box-shadow: inset 0 2px 3px rgba(91, 85, 86, 0.37);
+        cursor: pointer;
+    }
+
+    .switch::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.1s ease-out;
+        content: "";
+        width: 88px;
+        height: 88px;
+        z-index: 2;
+        background: linear-gradient(to bottom, #f5f5f5, #e7e7e7);
+        border-radius: 50%;
+        box-shadow: 0 2px 6px rgba(83, 73, 74, 0.44), 0 0 0 1px rgba(41, 41, 41, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.77);
+    }
+
+    .switch::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.1s ease-out;
+        content: "OFF";
+        z-index: 3;
+        font-size: 16px;
+        color: #73706b;
+        text-shadow: 0 2px 0 white;
+    }
+
+    .switch:hover::before {
+        background: linear-gradient(to bottom, #e7e7e7, #f5f5f5);
+    }
+
+    .switch.active {
+        width: 117px;
+        height: 117px;
+        background: linear-gradient(50deg, #ffca17 0%, #fe8800 31%, #ff5a24 52%, #f81e37 76%, #f61439 100%);
+        box-shadow: inset 0 0 7px rgba(87, 0, 10, 0.57);
+        transform-origin: center;
+    }
+
+    .switch.active::before {
+        background: linear-gradient(to bottom, #dbcfca, #fcf6f0);
+        box-shadow: 0 2px 8px rgba(183, 0, 15, 0.44), 0 0 0 1px rgba(41, 41, 41, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.77);
+    }
+
+    .switch.active::after {
+        content: "ON";
+        color: #f72735;
+    }
+
+    @keyframes loop {
+        0% {
+            transform: rotate(0) translate(-50%, -50%);
+        }
+
+        100% {
+            transform: rotate(360deg) translate(-50%, -50%);
+        }
+    }
+</style>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const switchElement = document.querySelector('.switch');
+        const turnOnElements = document.querySelectorAll('.turnon');
+        const turnOffElements = document.querySelectorAll('.turnoff');
+
+        // 초기 상태 설정
+        function updateDisplay() {
+            if (switchElement.classList.contains('active')) {
+                turnOnElements.forEach(el => el.style.display = 'block');
+                turnOffElements.forEach(el => el.style.display = 'none');
+            } else {
+                turnOnElements.forEach(el => el.style.display = 'none');
+                turnOffElements.forEach(el => el.style.display = 'block');
+            }
+        }
+
+        // 페이지 로드 시 초기 상태 설정
+        updateDisplay();
+
+        // 스위치 클릭 이벤트
+        switchElement.addEventListener('click', function () {
+            this.classList.toggle('active');
+            updateDisplay();
+        });
+    });
+</script>

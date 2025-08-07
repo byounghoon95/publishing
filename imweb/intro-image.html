@@ -1,0 +1,82 @@
+<!-- https://m-apping.com/57/?q=YToyOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjtzOjQ6InBhZ2UiO2k6Mjt9&bmode=view&idx=17932751&t=board -->
+<div class="int">
+  <div class="int-container" id="int-container">
+    <a class="int-ham" href="https://m-apping.com/57">
+      <img class="int-ham-img" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/71200d85606f4.png" />
+      <img class="int-ham-additional-img" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/985eb3215dc49.png" />
+    </a>
+    <a class="int-belme" href="https://m-apping.com/">
+      <img class="int-belme-img" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/603cb73ef7ae5.png" />
+      <img class="int-belme-additional-img" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/1df42b2ea0512.png" />
+    </a>
+  </div>
+  <div class="centercircle">
+    <img style="width:100%; object-fit:cover;" class="centerimg" id="centerimg" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/dd3833701592d.png">
+  </div>
+</div>
+
+<style>.int-ham,.int-belme {
+	position: relative;
+}
+.int-ham-additional-img,.int-belme-additional-img {
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	opacity:0;
+	/* 초기에는 투명하게 설정 */
+	transition:opacity 0.3s ease,transform 0.3s ease;
+}
+.int-ham:hover .int-ham-additional-img,.int-belme:hover .int-belme-additional-img {
+	opacity:1;
+	transform:translate(-50%,-60%);
+	/* 살짝 위로 이동하는 애니메이션 */
+}
+.centercircle {
+	top:50%;
+	left:50%;
+	position:absolute;
+	width:20rem;
+	transform:translate(-50%,-50%);
+}
+body {
+	margin:0;
+}
+.int {
+	position:relative;
+}
+.int-container {
+	width:100vw;
+	display:flex;
+}
+.int-ham,.int-belme {
+	flex:1;
+}
+.int-ham-img,.int-belme-img {
+	width:100%;
+	height:auto;
+	display:block;
+	transition:transform 0.3s ease;
+}
+.int-ham-img:hover {
+	content:url('https://cdn.imweb.me/upload/S20220110de20c90fdecb7/e91610a2dcb21.png');
+}
+.int-belme-img:hover {
+	content:url('https: //cdn.imweb.me/upload/S20220110de20c90fdecb7/710fffa5a01d9.png');
+}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var intContainer = document.getElementById('int-container');
+    var centerImg = document.getElementById('centerimg');
+    intContainer.addEventListener('mouseover', function () {
+      centerImg.src = 'https://cdn.imweb.me/upload/S20220110de20c90fdecb7/e903b246e6871.png';
+    });
+
+    intContainer.addEventListener('mouseout', function () {
+      centerImg.src = 'https://cdn.imweb.me/upload/S20220110de20c90fdecb7/dd3833701592d.png';
+    });
+  });
+</script>
+

@@ -1,0 +1,154 @@
+<!-- https://m-apping.com/57/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=18087903&t=board -->
+
+<body style="background-color: gray;">
+   <div class="flt_event">
+
+  <img class="eventimg" src="https://cdn.imweb.me/upload/S20231030644a31f02cc95/77e6532fd0d4a.png">
+ßß
+  <div class="buttonlocation"></div>
+
+ 
+
+</div>
+ 
+</body>
+
+
+
+
+
+
+
+
+
+  <style>
+
+    .buttonlocation {
+
+    position:absolute;
+
+    cursor:pointer;
+
+    z-index:3;
+
+    width:200px;
+
+    height:20px;
+
+    top:140px;
+
+    left:20px;
+
+    }
+
+    
+
+    .eventimg {
+
+    position:absolute;
+
+    top:-20px;
+
+    left:0px;
+
+    }
+
+    
+
+    .flt_event {
+
+      position: relative;
+
+      width: 60px;
+
+      right: 5px;
+
+      height: 200px;
+
+      box-sizing: border-box;
+
+      margin: 0 auto;
+
+      position: fixed;
+
+      z-index: 2;
+
+      transition: transform 2s ease; 
+
+      transform: translateY(120%); 
+
+    }
+
+
+
+    @media (min-width: 600px) {
+
+      .flt_event {
+
+        position: fixed;
+
+        bottom: 20px;
+
+        width: 300px;
+
+        z-index: 1040;
+
+      }
+
+    }
+
+  </style>
+
+  
+
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+      var fltEvent = document.querySelector(".flt_event");
+
+      var scrollThreshold = 1600;  
+
+      var buttonLocation = document.querySelector(".buttonlocation");
+
+
+
+      window.addEventListener("scroll", function () {
+
+        var scrolled = window.scrollY || document.documentElement.scrollTop;
+
+
+
+        if (scrolled > scrollThreshold) {
+
+          fltEvent.style.transform = "translateY(0)";
+
+        } else {
+
+          // fltEvent.style.transform = "translateY(100%)";
+
+        }
+
+      });
+
+
+
+
+
+      buttonLocation.addEventListener("click", function () {
+
+   
+
+        window.open("https://www.naver.com");
+
+
+
+        fltEvent.style.display = "none";
+
+      });
+
+    });
+
+</script>

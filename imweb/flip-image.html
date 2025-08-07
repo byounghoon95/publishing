@@ -1,0 +1,101 @@
+<!-- https://m-apping.com/57/?q=YToyOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjtzOjQ6InBhZ2UiO2k6Mjt9&bmode=view&idx=18020861&t=board -->
+<div class="card">
+    <div class="front">
+        <figure>
+            <img src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/a1c77c86eaba0.png" alt="">
+            <figcaption>
+                <h3></h3>
+            </figcaption>
+        </figure>
+    </div>
+    <div class="back">
+        <figure>
+            <img src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/3574244712607.png" alt="">
+            <figcaption>
+                <h3></h3>
+                <p>코드를 사용하여 홈페이지의 완성도를 높여보세요!</p>
+            </figcaption>
+        </figure>
+    </div>
+</div>
+
+<style>
+    .card {
+        position: relative;
+        perspective: 1000px;
+    }
+
+    .card .front,
+    .card .back {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        transition: transform 1s;
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+    }
+
+    .card img {
+        width: 100%;
+        transition: all 0.6s ease 0.2s;
+        border: 7px solid #060c1f;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    .card .front img {
+        border-color: #fff;
+    }
+
+    .card .back img {
+        border-color: #041135;
+    }
+
+    .card .front {}
+
+    .card .back {
+        transform: rotateY(-180deg);
+    }
+
+    .card figcaption {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        backface-visibility: hidden;
+        transform: translate(-50%, -50%) translateZ(100px);
+        color: #fff;
+        font-size: 20px;
+        display: block;
+        text-align: center;
+    }
+
+    .card figcaption h3 {
+        min-width: 200px;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 24px;
+    }
+
+    .card figcaption p {
+        font-weight: 200;
+        padding-top: 5px;
+    }
+
+    .card img {
+        width: 400px;
+    }
+
+    .card:hover .front {
+        transform: rotateY(180deg);
+    }
+
+    .card:hover .back {
+        transform: rotateY(0);
+    }
+</style>

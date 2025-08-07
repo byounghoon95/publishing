@@ -1,0 +1,205 @@
+<div class="cover">
+        <div class="carList">
+            <img src="https://cdn.imweb.me/upload/S20231030644a31f02cc95/7a4f8fc2eb9a7.png" class="carImg">
+            <img src="https://cdn.imweb.me/upload/S20231030644a31f02cc95/b0d07f4f55dd0.png" class="carImg">
+            <img src="https://cdn.imweb.me/upload/S20231030644a31f02cc95/0419bba77fe08.png" class="carImg">
+            <img src="https://cdn.imweb.me/upload/S20231030644a31f02cc95/5e89ff7aa9e7c.png" class="carImg">
+            <img src="https://cdn.imweb.me/upload/S20231030644a31f02cc95/12006462eb8d5.png" class="carImg">
+            <img src="https://cdn.imweb.me/upload/S20231030644a31f02cc95/7ad28f2a8a94e.png" class="carImg">
+        </div>
+        <div style="margin-top: 80px;">
+            <div class="desc">
+                <div class="xkdlxmf">
+                    <div class="fhrhdlalwl">
+                        <img src="https://cdn.imweb.me/upload/S20231030644a31f02cc95/07a440c0cd77f.png">
+                        <h2 class="dpdlcl2">The new IONIQ 5</h2>
+                    </div>
+                    <div>
+                        <button class="MoreBtn">더 보기</button>
+                    </div>
+                </div>
+                <div class="subTitle">
+                    <div style="display: flex; align-items: center; margin-bottom: 20px; font-size: 14px; color: #262626;">
+                        <p style="margin-right: 10px;">2024.03</p><span style="margin-right: 10px;">|</span>
+                        <p style="margin-right: 10px;">준중형차</p><span style="margin-right: 10px;">|</span>
+                        <p>전기</p>
+                    </div>
+                    <div style="display: flex; align-items: center; font-size: 14px; color: #262626;" >
+                        <p style="margin-right: 10px;">cc</p><span style="margin-right: 10px;">|</span>
+                        <p style="margin-right: 10px;">복합연비 4.8~5.2km/kWh </p>
+                    </div>
+                </div>
+            </div>
+            <div class="color">
+                <div class="colorTitle">
+                    <h2 class="dpdlcl2">외장색상</h2>
+                    <p id="changeName" style="font-size: 14px; color: #262626; margin: 0;">아틀라스 화이트</p>
+                </div>
+                <div class="colorInput">
+                    <div style="margin-right: 20px;">
+                        <input type="radio" name="carColor" id="car1" value="아틀라스 화이트" checked>
+                        <label for="car1"></label>
+                    </div>
+                    <div style="margin-right: 20px;">
+                        <input type="radio" name="carColor" id="car2" value="루시드 블루 펄">
+                        <label for="car2"></label>
+                    </div>
+                    <div style="margin-right: 20px;">
+                        <input type="radio" name="carColor" id="car3" value="디지털 틸 그린 펄">
+                        <label for="car3"></label>
+                    </div>
+                    <div style="margin-right: 20px;">
+                        <input type="radio" name="carColor" id="car4" value="사이버 그레이 메탈릭">
+                        <label for="car4"></label>
+                    </div>
+                    <div style="margin-right: 20px;">
+                        <input type="radio" name="carColor" id="car5" value="에코트로닉 그레이 펄">
+                        <label for="car5"></label>
+                    </div>
+                    <div>
+                        <input type="radio" name="carColor" id="car6" value="어비스 블랙 펄">
+                        <label for="car6"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<style>
+  .dpdlcl2 {
+	margin:0;
+    }
+    * {
+        box-sizing:border-box;
+    }
+    .cover {
+        width:100%;
+        height:500px;
+        background:#dedede;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:20px;
+        padding:20px;
+        margin:0 auto;
+    }
+    .fhrhdlalwl {
+        display:flex;
+        align-items:center;
+    }
+    .fhrhdlalwl>h2 {
+        margin-left:20px;
+        font-size:24px;
+        color:gray;
+    }
+    .carList {
+        position:relative;
+    }
+    .carList img {
+        position:absolute;
+        width:100%;
+        height:100%;
+        opacity:0;
+        /* transition:all 1s ease;*/
+    }
+    .carList img:nth-child(1) {
+        opacity:1;
+    }
+    .xkdlxmf {
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-bottom:20px;
+    }
+    .subTitle>div>p {
+        margin:0;
+    }
+    .desc {
+        padding-bottom:40px;
+        border-bottom:1px solid #a9a9a9;
+    }
+    .colorTitle {
+        padding-top:20px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-bottom:20px;
+    }
+    .colorInput input {
+        display:none;
+    }
+    label {
+        width:50px;
+        height:50px;
+        display:inline-block;
+        border-radius:10px;
+        cursor:pointer;
+    }
+    input[type="radio"]:checked+label {
+        border:2px solid blue;
+    }
+    .colorInput {
+        display:flex;
+    }
+    #car1+label {
+        background:#F9FAFF;
+    }
+    #car2+label {
+        background:#4E5F76;
+    }
+    #car3+label {
+        background:#192D2B;
+    }
+    #car4+label {
+        background:#858585;
+    }
+    #car5+label {
+        background:#484848;
+    }
+    #car6+label {
+        background:#191919;
+    }
+    .colorTitle h2 {
+        color:gray;
+        font-size:20px;
+    }
+    .MoreBtn {
+        background:#146af0;
+        color:#fff;
+        padding:7px 10px 5px 10px;
+        border:none;
+        border-radius:100px;
+        cursor:pointer;
+        font-size:14px;
+    }
+    .MoreBtn:hover {
+        color:#146af0;
+        background: #fff;
+    }
+
+</style>
+
+<script>
+    let colorBtn = document.getElementsByName("carColor");
+    let carImg  = document.querySelectorAll(".carImg");
+    colorBtn.forEach(function(radioButton, index) {
+        radioButton.addEventListener('change',function(){
+            carImg.forEach(function(img,imgindex) {
+                if(index === imgindex) {
+                    img.style.opacity = "1";
+                    img.style.transition = "all 1s ease"
+                }else {
+                    img.style.opacity = "0";
+                    img.style.transition = "all 1s ease"
+                }
+            })
+        })
+    })
+
+    let radioBtns = document.querySelectorAll(".colorInput div input");
+    for(let i = 0; i < radioBtns.length; i++) {
+        radioBtns[i].addEventListener("change",function(){
+            var selectedValue = document.querySelector('input[name="carColor"]:checked').value;
+            document.getElementById("changeName").innerText = selectedValue;
+        })
+    }
+
+</script>

@@ -1,0 +1,115 @@
+<!-- https://m-apping.com/57/?q=YToyOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjtzOjQ6InBhZ2UiO2k6Mjt9&bmode=view&idx=18015896&t=board -->
+<div class="circleeffect">
+
+  <img class="circle-img" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/f1e84dfa65ef5.png" alt="이미지" style="width: 110%; height: 110%; object-fit: cover; border-radius: 50%; position: absolute; top: -13px; left: -13px;" />
+
+</div>
+
+
+
+<style>
+
+  .circleeffect {
+
+    position: relative;
+
+    width: 280px;
+
+    height: 280px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    box-shadow:
+
+      0 0 20px #fff,
+
+      -20px 0 80px #f0f,
+
+      20px 0 80px #0ff,
+
+      inset 0 0 50px #fff,
+
+      inset 50px 0 80px #f0f,
+
+      inset -50px 0 80px #0ff,
+
+      inset 50px 0 300px #f0f,
+
+      inset -50px 0 300px #0ff;
+
+    animation: float 6s linear infinite; 
+
+    cursor:pointer;
+
+    transition: transform 0.5s ease-in-out; 
+
+  }
+
+
+
+  .circleeffect:hover {
+
+    animation: float 2s ease-in-out infinite, pulsate 2s ease-in-out infinite; 
+
+    transform: scale(1.1); 
+
+  }
+
+
+
+  @keyframes float {
+
+    0%, 100% {
+
+      transform: translate(0, 0); 
+
+    }
+
+    50% {
+
+      transform: translate(0, 10px); 
+
+    }
+
+  }
+
+
+
+  @keyframes pulsate {
+
+    50% {
+
+      box-shadow:
+
+        0 0 20px #fff,
+
+        20px 0 80px #f0f,
+
+        -20px 0 80px #0ff,
+
+        inset 0 0 50px #fff,
+
+        inset -50px 0 80px #f0f,
+
+        inset 50px 0 80px #0ff,
+
+        inset -50px 0 300px #f0f,
+
+        inset 50px 0 300px #0ff;
+
+    }
+
+  }
+
+
+
+  .circleeffect:hover .circle-img {
+
+    content: url('https://cdn.imweb.me/upload/S20220110de20c90fdecb7/554ac5fe8cc62.gif');
+
+  }
+
+</style>
+

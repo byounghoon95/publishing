@@ -1,0 +1,50 @@
+<!-- https://m-apping.com/57/?q=YToyOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjtzOjQ6InBhZ2UiO2k6Mjt9&bmode=view&idx=18043977&t=board -->
+<div class="cursor"></div>
+
+<style>
+  .cursor {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #EB5514;
+    transition: transform 0.2s, filter 0.5s ease-out;
+    mix-blend-mode: difference;
+    pointer-events: none;
+    z-index: 999999;
+    filter: blur(5px);
+  }
+</style>
+
+<script>
+    const $cursor = document.querySelector('.cursor');
+    let cursorX = 0;
+    let cursorY = 0;
+    let mouseX = 0;
+    let mouseY = 0;
+
+    document.addEventListener('mousemove', function(e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    });
+
+    function updateCursor() {
+    const deltaX = (mouseX - cursorX - 30) / 8;
+    const deltaY = (mouseY - cursorY - 30) / 8;
+    cursorX += deltaX;
+    cursorY += deltaY;
+
+    $cursor.style.left = cursorX + 'px';
+    $cursor.style.top = cursorY + 'px';
+
+    cursorX += 6;
+    cursorY += 6;
+    $cursor.style.left = cursorX + 'px';
+    $cursor.style.top = cursorY + 'px';
+
+    requestAnimationFrame(updateCursor);
+    }
+
+    updateCursor();
+
+</script>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>호버 이미지 색상 변경</title>
+</head>
+<body>
+
+<div class="backgroundchange" id="backgroundchange">
+  <div class="imgcontainer">
+    <img class="hoverimg" id="imweblogo" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/c3bc0737f03cf.png">
+    <img class="hoverimg" id="mappinglogo" src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/f48084ba0695c.png">
+  </div>
+</div>
+
+<style>
+.backgroundchange {
+  width: 100%;
+  height: 800px;
+  background-color: white;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.9s ease; 
+}
+
+.imgcontainer {
+  display: flex;
+  gap: 50px;
+}
+
+.hoverimg {
+  width: 400px;
+  height: 400px;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+  filter: brightness(1) contrast(1) saturate(1) hue-rotate(0deg);
+}
+
+/* 첫 번째 이미지 호버 효과 - 파란색 톤 */
+#imweblogo:hover {
+  filter: brightness(1.2) contrast(1.1) saturate(1.5) hue-rotate(200deg);
+}
+
+/* 두 번째 이미지 호버 효과 - 빨간색 톤 */
+#mappinglogo:hover {
+  filter: brightness(1.2) contrast(1.1) saturate(1.5) hue-rotate(320deg);
+}
+
+/* 호버 시 약간의 스케일 효과도 추가 */
+.hoverimg:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+</style>
+
+</body>
+</html>

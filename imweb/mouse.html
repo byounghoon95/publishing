@@ -1,0 +1,142 @@
+<!-- https://m-apping.com/57/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=18147234&t=board -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D 마우스 추적 카드</title>
+</head>
+
+<body>
+
+    <div class="mouse3dbody">
+        <div id="top">
+            <div class="perspective">
+                <div class="card">
+                    <div class="thumb"
+                        style="background-image: url(https://cdn.imweb.me/upload/S20220110de20c90fdecb7/897a1e3679771.png)">
+                    </div>
+                    <h2>마우스 방향에 따라 움직이는</h2>
+                    <span>3D 이미지 카드</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .mouse3dbody {
+            background-color: #1b1b1b;
+            font-family: "Varela Round", sans-serif;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .perspective {
+            width: 100%;
+            perspective: 1000px;
+        }
+
+        #top {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+        }
+
+        .card {
+            width: 270px;
+            height: 413px;
+            margin: auto;
+            box-shadow: 0 70px 63px -60px #FFF;
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+            position: relative;
+        }
+
+        .card .thumb {
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            width: 100%;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .card .thumb:after {
+            background: inherit;
+            content: "";
+            display: block;
+            position: absolute;
+            left: -60px;
+            top: 40px;
+            width: 100%;
+            height: 108%;
+            z-index: -1;
+            filter: blur(55px);
+            border-radius: 15px;
+        }
+
+        .card h2 {
+            position: absolute;
+            top: 0;
+            left: -60px;
+            font-size: 40px;
+            font-weight: 100;
+            transform: translateZ(80px);
+            margin: 0;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .card span {
+            position: absolute;
+            bottom: 40px;
+            right: -280px;
+            font-size: 37px;
+            font-weight: 600;
+            transform: translateZ(35px);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const card = document.querySelector('.card');
+            const topElement = document.getElementById('top');
+            const maxRotateY = 30;
+            const maxRotateX = 20;
+
+            topElement.addEventListener('mousemove', function (event) {
+                const rect = topElement.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+
+                // 마우스 위치에 따른 회전각 계산
+                let rotateY = -((centerX - event.clientX) / 15);
+                let rotateX = ((centerY - event.clientY) / 15);
+
+                // 회전각 제한
+                rotateY = Math.min(Math.max(rotateY, -maxRotateY), maxRotateY);
+                rotateX = Math.min(Math.max(rotateX, -maxRotateX), maxRotateX);
+
+                // 3D 변환 적용
+                card.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+            });
+
+            // 마우스가 영역을 벗어났을 때 원래 위치로 복귀
+            topElement.addEventListener('mouseleave', function () {
+                card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+            });
+        });
+    </script>
+
+</body>
+
+</html>

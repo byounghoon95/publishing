@@ -1,0 +1,177 @@
+<div class="splitslider">
+    <div class="slider-container">
+        <div class="left-slide">
+            <div style="background-color: blue">
+                <h1>보다 동적인 홈페이지의</h1>
+                <p>첫 인상을 심어줄 수 있습니다</p>
+            </div>
+            <div style="background-color: green;">
+                <h1>코드위젯을 사용하면</h1>
+                <p>상단 메뉴 겹치기는 제한될 수 있지만</p>
+            </div>
+            <div style="background-color: rgb(231, 58, 95)">
+                <h1>비주얼섹션보다 화려한</h1>
+                <p>이미지 슬라이드를 만들어보세요</p>
+            </div>
+            <div style="background-color: #1b1b1b;">
+                <h1>아임웹 코드</h1>
+                <p>위 아래로 구분된 슬라이드 섹션</p>
+            </div>
+        </div>
+
+        <div class="right-slide">
+            <div style="background-image: url('https://cdn.imweb.me/upload/S20220110de20c90fdecb7/04f02c249dac2.png');">
+            </div>
+
+            <div style="background-image: url('https://cdn.imweb.me/upload/S20220110de20c90fdecb7/21522b55867f5.png');">
+            </div>
+
+            <div style="background-image: url('https://cdn.imweb.me/upload/S20220110de20c90fdecb7/09074a5335dd0.png');">
+            </div>
+
+            <div style="background-image: url('https://cdn.imweb.me/upload/S20220110de20c90fdecb7/c1363454a5463.png');">
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button id="arrowbtn" class="down-button">
+                <i class="fas fa-arrow-down"></i>
+            </button>
+            <button id="arrowbtn" class="up-button">
+                <i class="fas fa-arrow-up"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .splitslider {
+        font-family: 'Lato', sans-serif;
+        height: 100vh;
+    }
+
+    .slider-container {
+        position: relative;
+        overflow: hidden;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .left-slide {
+        height: 100%;
+        width: 35%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .left-slide>div {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+    }
+
+    .left-slide h1 {
+        font-size: 40px;
+        margin-bottom: 10px;
+        margin-top: -30px;
+    }
+
+    .right-slide {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 35%;
+        width: 65%;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .right-slide>div {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        height: 100%;
+        width: 100%;
+    }
+
+    #arrowbtn {
+        background-color: #fff;
+        border: none;
+        color: #aaa;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 15px;
+    }
+
+    #arrowbtn:hover {
+        color: #222;
+    }
+
+    button:focus {
+        outline: none;
+    }
+
+    .slider-container .action-buttons button {
+        position: absolute;
+        left: 35%;
+        top: 50%;
+        z-index: 100;
+    }
+
+    .slider-container .action-buttons .down-button {
+        transform: translateX(-100%);
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    .slider-container .action-buttons .up-button {
+        transform: translateY(-100%);
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+</style>
+
+<script>
+    const sliderContainer = document.querySelector('.slider-container')
+    const slideRight = document.querySelector('.right-slide')
+    const slideLeft = document.querySelector('.left-slide')
+    const upButton = document.querySelector('.up-button')
+    const downButton = document.querySelector('.down-button')
+    const slidesLength = slideRight.querySelectorAll('div').length
+
+    let activeSlideIndex = 0
+    slideLeft.style.top = `-${(slidesLength - 1) * 100}vh`
+    upButton.addEventListener('click', () => changeSlide('up'))
+    downButton.addEventListener('click', () => changeSlide('down'))
+
+    const changeSlide = (direction) => {
+        const sliderHeight = sliderContainer.clientHeight
+        if (direction === 'up') {
+            activeSlideIndex++
+            if (activeSlideIndex > slidesLength - 1) {
+                activeSlideIndex = 0
+            }
+        } else if (direction === 'down') {
+            activeSlideIndex--
+            if (activeSlideIndex < 0) {
+                activeSlideIndex = slidesLength - 1
+            }
+        }
+
+        slideRight.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`
+        slideLeft.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`
+    }
+</script>

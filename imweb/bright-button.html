@@ -1,0 +1,62 @@
+<!-- https://m-apping.com/57/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=18116790&t=board -->
+<div class="wrapper">
+    <a href="#" class="button">버튼 애니메이션</a>
+</div>
+
+<style>
+    @keyframes sheen {
+        0% {
+            transform: skewY(-45deg) translateX(0);
+        }
+
+        100% {
+            transform: skewY(-45deg) translateX(12.5em);
+        }
+    }
+
+    .wrapper {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .button {
+        padding: 0.75em 2em;
+        text-align: center;
+        text-decoration: none;
+        color: #FF0202;
+        border: 2px solid #FF0202;
+        font-size: 18px;
+        display: inline-block;
+        border-radius: 0.3em;
+        transition: all 0.2s ease-in-out;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .button:before {
+        content: "";
+        background-color: rgba(255, 255, 255, 0.5);
+        height: 100%;
+        width: 3em;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -4.5em;
+        transform: skewX(-45deg) translateX(0);
+        transition: none;
+    }
+
+    .button:hover {
+        background-color: #FF0202;
+        color: #fff;
+        border-bottom: 4px solid #C90909;
+    }
+
+    .button:hover:before {
+        transform: skewX(-45deg) translateX(13.5em);
+        transition: all 0.5s ease-in-out;
+    }
+</style>

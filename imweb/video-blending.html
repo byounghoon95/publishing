@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Text Overlay</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            text-align: center;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background: linear-gradient(45deg, #667eea 0%, #764ba2 100%); }
+            25% { background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%); }
+            50% { background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%); }
+            75% { background: linear-gradient(45deg, #43e97b 0%, #38f9d7 100%); }
+        }
+
+        .container .bg-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        .container .text01 {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.6);
+            font-weight: 900;
+            font-size: clamp(60px, 8vw, 120px);
+            font-family: 'Arial Black', sans-serif;
+            mix-blend-mode: multiply;
+            user-select: none;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            letter-spacing: 0.1em;
+            line-height: 1.2;
+            animation: textPulse 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes textPulse {
+            0% { 
+                transform: scale(1);
+                text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            }
+            100% { 
+                transform: scale(1.05);
+                text-shadow: 4px 4px 16px rgba(0, 0, 0, 0.8);
+            }
+        }
+
+        /* Fallback pattern for when video doesn't load */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.3) 0%, transparent 50%);
+            animation: patternMove 10s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes patternMove {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(-10px, -10px) rotate(90deg); }
+            50% { transform: translate(0, -20px) rotate(180deg); }
+            75% { transform: translate(10px, -10px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+
+        .text01 {
+            z-index: 2;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container .text01 {
+                font-size: clamp(40px, 10vw, 80px);
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Video element - will fallback to animated background if video doesn't load -->
+        <video class="bg-video" autoplay loop muted playsinline>
+            <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+            <!-- Fallback content is handled by CSS animations -->
+        </video>
+        
+        <p class="text01">IMWEB <br>
+            DESIGN <br>
+            MAPPING</p>
+    </div>
+
+    <script>
+        // Handle video load errors gracefully
+        const video = document.querySelector('.bg-video');
+        video.addEventListener('error', function() {
+            console.log('Video failed to load, using animated background fallback');
+            this.style.display = 'none';
+        });
+
+        // Optional: Add some interactivity
+        document.addEventListener('click', function() {
+            const text = document.querySelector('.text01');
+            text.style.animation = 'textPulse 0.5s ease-in-out';
+            setTimeout(() => {
+                text.style.animation = 'textPulse 3s ease-in-out infinite alternate';
+            }, 500);
+        });
+    </script>
+</body>
+</html>

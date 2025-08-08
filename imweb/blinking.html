@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashing Text Effect</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2 {
+            margin: 0;
+            font-family: 'Arial Black', Arial, sans-serif;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: clamp(2rem, 8vw, 4rem);
+            line-height: 0.75;
+            text-align: center;
+            letter-spacing: 0.1em;
+        }
+
+        p {
+            display: block;
+            margin: 0.2em 0;
+            transition: all 0.3s ease;
+        }
+
+        p:not(.light) {
+            opacity: 0;
+            animation: flashText 0.5s ease-out alternate infinite;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        p.light {
+            position: relative;
+            display: inline-block;
+            color: #fff;
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 15px #fff,
+                0 0 20px #00ffff,
+                0 0 25px #00ffff,
+                0 0 30px #00ffff;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+
+        p.light:before {
+            position: absolute;
+            left: -5%;
+            top: 10%;
+            width: 110%;
+            height: 60px;
+            background: linear-gradient(90deg, transparent, #00ffff, transparent);
+            filter: blur(20px);
+            content: "";
+            opacity: 0;
+            animation: flash 0.5s ease-out alternate infinite;
+            z-index: -1;
+        }
+
+        p.light:after {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.2) 45%, 
+                rgba(255, 255, 255, 0.8) 50%, 
+                rgba(255, 255, 255, 0.2) 55%, 
+                transparent 100%
+            );
+            content: "";
+            opacity: 0;
+            animation: sweep 2s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes flash {
+            0% { opacity: 0; }
+            100% { opacity: 0.8; }
+        }
+
+        @keyframes flashText {
+            0% { opacity: 0; }
+            100% { opacity: 0.3; }
+        }
+
+        @keyframes glow {
+            0% { 
+                text-shadow: 
+                    0 0 5px #fff,
+                    0 0 10px #fff,
+                    0 0 15px #fff,
+                    0 0 20px #00ffff,
+                    0 0 25px #00ffff,
+                    0 0 30px #00ffff;
+            }
+            100% { 
+                text-shadow: 
+                    0 0 10px #fff,
+                    0 0 20px #fff,
+                    0 0 30px #fff,
+                    0 0 40px #00ffff,
+                    0 0 50px #00ffff,
+                    0 0 60px #00ffff;
+            }
+        }
+
+        @keyframes sweep {
+            0% { 
+                left: -100%; 
+                opacity: 0; 
+            }
+            50% { 
+                opacity: 1; 
+            }
+            100% { 
+                left: 100%; 
+                opacity: 0; 
+            }
+        }
+
+        /* Hover effects for interactivity */
+        h2:hover p:not(.light) {
+            animation-duration: 0.1s;
+        }
+
+        h2:hover p.light {
+            transform: scale(1.1);
+            animation-duration: 0.3s;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: clamp(1.5rem, 6vw, 3rem);
+            }
+            
+            p.light:before {
+                height: 40px;
+                filter: blur(15px);
+            }
+        }
+
+        /* Add some particles for extra effect */
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #00ffff;
+            border-radius: 50%;
+            animation: float 3s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(50px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>
+        <p>IMWEB</p>
+        <p class="light">DESIGN</p>
+        <p>MAPPING</p>
+    </h2>
+
+    <!-- Add some floating particles -->
+    <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="particle" style="left: 20%; animation-delay: 0.5s;"></div>
+    <div class="particle" style="left: 30%; animation-delay: 1s;"></div>
+    <div class="particle" style="left: 70%; animation-delay: 1.5s;"></div>
+    <div class="particle" style="left: 80%; animation-delay: 2s;"></div>
+    <div class="particle" style="left: 90%; animation-delay: 2.5s;"></div>
+
+    <script>
+        // Add dynamic particle generation
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 3 + 's';
+            document.body.appendChild(particle);
+
+            // Remove particle after animation
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.parentNode.removeChild(particle);
+                }
+            }, 3000);
+        }
+
+        // Generate particles periodically
+        setInterval(createParticle, 1000);
+
+        // Add click interaction
+        document.querySelector('h2').addEventListener('click', function() {
+            const lightElement = document.querySelector('.light');
+            lightElement.style.animation = 'glow 0.2s ease-in-out 3 alternate';
+            
+            setTimeout(() => {
+                lightElement.style.animation = 'glow 1s ease-in-out infinite alternate';
+            }, 600);
+        });
+    </script>
+</body>
+</html>

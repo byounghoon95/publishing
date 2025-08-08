@@ -1,0 +1,142 @@
+<!-- https://m-apping.com/57/?q=YToyOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjtzOjQ6InBhZ2UiO2k6Mjt9&bmode=view&idx=14245939&t=board -->
+<div class="splitview skewed">
+    <div class="panel bottom">
+        <div class="content">
+            <div class="description">
+                <h1>Mapping</h1>
+            </div>
+
+            <img src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/2a6c264f38029.png" alt="Original">
+        </div>
+    </div>
+
+    <div class="panel top">
+        <div class="content">
+            <div class="description">
+                <h1>IMWEB</h1>
+            </div>  
+
+            <img src="https://cdn.imweb.me/upload/S20220110de20c90fdecb7/12d28b3dd0b95.png" alt="Duotone">
+        </div>
+    </div>
+
+    <div class="handle"></div>
+</div>
+
+<style>
+    .splitview skewed {
+        position: relative;
+        width: 100%;
+        min-height: 45vw;
+        overflow: hidden;
+    }
+
+    .panel {
+        position: absolute;
+        width: 100vw;
+        min-height: 45vw;
+        overflow: hidden;
+    }
+
+    .panel .content {
+        position: absolute;
+        width: 100vw;
+        min-height: 45vw;
+        color: #FFF;
+    }
+
+    .panel .description {
+        width: 25%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+    }
+
+    .panel img {
+        box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.15);
+        border-radius: 20px;
+        width: 35%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+
+    .bottom {
+        background-color: #1B1B1B;
+        z-index: 1;
+    }
+
+    .bottom .description {
+        right: 5%;
+    }
+
+    .top {
+        background-color: #2771FB;
+        z-index: 2;
+        width: 50vw;
+    }
+
+    .top .description {
+        left: 5%;
+    }
+
+    .handle {
+        height: 100%;
+        position: absolute;
+        display: block;
+        background-color: #2771FB;
+        width: 5px;
+        top: 0;
+        left: 50%;
+        z-index: 3;
+    }
+
+    .skewed .handle {
+        top: 50%;
+        transform: rotate(30deg) translateY(-50%);
+        height: 200%;
+        -webkit-transform-origin: top;
+        -moz-transform-origin: top;
+        transform-origin: top;
+    }
+
+    .skewed .top {
+        transform: skew(-30deg);
+        margin-left: -1000px;
+        width: calc(50vw + 1000px);
+    }
+
+    .skewed .top .content {
+        transform: skew(30deg);
+        margin-left: 1000px;
+    }
+
+    @media (max-width: 900px) {
+        body {
+            font-size: 75%;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var parent = document.querySelector('.splitview'),
+            topPanel = parent.querySelector('.top'),
+            handle = parent.querySelector('.handle'),
+            skewHack = 0,
+            delta = 0;
+
+        if (parent.className.indexOf('skewed') != -1) {
+            skewHack = 1000;
+        }
+
+        parent.addEventListener('mousemove', function (event) {
+            delta = (event.clientX - window.innerWidth / 2) * 0.5;
+            handle.style.left = event.clientX + delta + 'px';
+            topPanel.style.width = event.clientX + skewHack + delta + 'px';
+        });
+    });
+</script>

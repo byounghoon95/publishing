@@ -1,0 +1,262 @@
+<!-- https://m-apping.com/57/?q=YToyOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjtzOjQ6InBhZ2UiO2k6Mjt9&bmode=view&idx=14095930&t=board -->
+<div class="section">
+    <div class="child-page-listing">
+        <h3>Gallery</h3>
+        <div class="grid-container">
+            <article id="3685" class="location-listing">
+                <a class="location-title" href="#">
+                    San Francisco </a>
+                <div class="location-image">
+                    <a href="#">
+                        <img width="600" height="338"
+                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/san-fransisco-768x432.jpg"
+                            alt="san francisco"> </a>
+                </div>
+            </article>
+            <article id="3688" class="location-listing">
+                <a class="location-title" href="#">
+                    London </a>
+                <div class="location-image">
+                    <a href="#">
+                        <img width="600" height="338"
+                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/london-768x432.jpg" alt="london">
+                    </a>
+                </div>
+            </article>
+            <article id="3691" class="location-listing">
+                <a class="location-title" href="#">
+                    New York </a>
+                <div class="location-image">
+                    <a href="#">
+                        <img width="600" height="338"
+                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/new-york-768x432.jpg"
+                            alt="new york"> </a>
+                </div>
+            </article>
+        </div>
+    </div>
+    <div class="buttonPosition">
+        <a href="#">
+            <img src="https://cdn.imweb.me/upload/S20230106ccf691116e85b/4339e56248293.png" width="50px" height="50px">
+        </a>
+    </div>
+</div>
+
+<div class="section">
+    <div class="location-image">
+        <article id="3685" class="location-listing">
+            <a class="location-title" href="#">
+                San Francisco </a>
+            <div class="location-image">
+                <a href="#">
+                    <img width="600" height="338"
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/san-fransisco-768x432.jpg"
+                        alt="san francisco"> </a>
+            </div>
+        </article>
+    </div>
+</div>
+
+<div class="section">
+    <article id="3688" class="location-listing">
+        <a class="location-title" href="#">
+            London </a>
+        <div class="location-image">
+            <a href="#">
+                <img width="600" height="338"
+                    src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/london-768x432.jpg" alt="london"> </a>
+        </div>
+    </article>
+</div>
+
+<div class="section">
+    <article id="3688" class="location-listing">
+        <a class="location-title" href="#">
+            London </a>
+        <div class="location-image">
+            <a href="#">
+                <img width="600" height="338"
+                    src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/new-york-768x432.jpg" alt="new york"> </a>
+        </div>
+    </article>
+</div>
+
+<style>
+    * {
+        transition-duration: 0.8s;
+        box-sizing: border-box;
+    }
+
+    .buttonPosition {
+        position: absolute;
+        z-index: 99;
+        animation-name: scrlDwnIndc;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    @keyframes scrlDwnIndc {
+
+        0% {
+            bottom: 50px;
+        }
+
+        20% {
+            bottom: 60px;
+        }
+
+        40% {
+            bottom: 70px;
+        }
+
+        60% {
+            bottom: 80px;
+        }
+
+        80% {
+            bottom: 90px;
+        }
+
+        100% {
+            bottom: 55px;
+        }
+
+    }
+
+    .section {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .child-page-listing {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        height: auto
+    }
+
+    .location-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    h3 {
+        margin-bottom: .5em;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(100px, auto);
+        justify-items: center;
+        grid-gap: 1em;
+    }
+
+
+    /* hover styles */
+    .location-listing {
+        position: relative;
+    }
+
+    .location-image {
+        line-height: 0;
+        overflow: hidden;
+    }
+
+    .location-image img {
+        filter: blur(0px);
+        transition: filter 0.3s ease-in;
+        transform: scale(1.1);
+    }
+
+    .location-title {
+        font-size: 1.5em;
+        font-weight: bold;
+        text-decoration: none;
+        z-index: 1;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity .5s;
+        background: rgba(90, 0, 10, 0.4);
+        color: white;
+
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .location-listing:hover .location-title {
+        opacity: 1;
+    }
+
+    .location-listing:hover .location-image img {
+        filter: blur(2px);
+    }
+
+
+
+    @media (hover: none) {
+        .location-title {
+            opacity: 1;
+        }
+
+        .location-image img {
+            filter: blur(2px);
+        }
+    }
+</style>
+<script>
+    window.onload = function () {
+        const elm = document.querySelectorAll('.section');
+        const elmCount = elm.length;
+        elm.forEach(function (item, index) {
+            item.addEventListener('mousewheel', function (event) {
+                event.preventDefault();
+                let delta = 0;
+
+                if (!event) event = window.event;
+                if (event.wheelDelta) {
+                    delta = event.wheelDelta / 120;
+                    if (window.opera) delta = -delta;
+                }
+                else if (event.detail)
+                    delta = -event.detail / 3;
+
+                let moveTop = window.scrollY;
+                let elmSelector = elm[index];
+
+                // wheel down : move to next section
+                if (delta < 0) {
+                    if (elmSelector !== elmCount - 1) {
+                        try {
+                            moveTop = window.pageYOffset + elmSelector.nextElementSibling.getBoundingClientRect().top;
+                        } catch (e) { }
+                    }
+                }
+                // wheel up : move to previous section
+                else {
+                    if (elmSelector !== 0) {
+                        try {
+                            moveTop = window.pageYOffset + elmSelector.previousElementSibling.getBoundingClientRect().top;
+                        } catch (e) { }
+                    }
+                }
+
+                const body = document.querySelector('html');
+                window.scrollTo({ top: moveTop, left: 0, behavior: 'smooth' });
+            });
+        });
+    }
+</script>

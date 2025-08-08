@@ -1,0 +1,124 @@
+<!-- https://m-apping.com/57/?q=YToyOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjtzOjQ6InBhZ2UiO2k6Mjt9&bmode=view&idx=14154042&t=board -->
+
+<!-- https://m-apping.com/57/?q=YToyOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjtzOjQ6InBhZ2UiO2k6Mjt9&bmode=view&idx=14154042&t=board -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@400&display=swap" rel="stylesheet">
+    <style>
+        .main_border {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            background-color: #ffffff;
+        }
+
+        .timer_group_border {
+            display: flex;
+        }
+
+        .timer_border {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 80px;
+            padding-top: 8px;
+            background-color: rgb(0, 0, 0);
+            border-radius: 6px;
+            margin: 5px;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            font-weight: 400;
+            color: white;
+        }
+
+        .date_text {
+            text-align: center;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            margin-top: 8px;
+            color: #818181;
+        }
+
+        .date_slice {
+            padding-bottom: 30px;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 40px;
+            font-weight: 400;
+            color: #000000;
+        }
+
+        .close_event {
+            color: #000000;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 30px;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    <div class="main_border" id="timer"></div>
+
+    <script type="text/javascript">
+        function updateTimer() {
+            // Set your target date here (format: MM/DD/YYYY HH:MM AM/PM)
+            var future = Date.parse("12/31/2025 23:59 PM");
+            var now = new Date();
+            var diff = future - now;
+
+            if (diff < 0) {
+                document.getElementById("timer").innerHTML =
+                    '<div class="close_event">이벤트가 종료되었습니다!</div>';
+                return;
+            }
+
+            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            var hours = Math.floor(diff / (1000 * 60 * 60));
+            var mins = Math.floor(diff / (1000 * 60));
+            var secs = Math.floor(diff / 1000);
+
+            var d = String(days).padStart(2, "0");
+            var h = String(hours - days * 24).padStart(2, "0");
+            var m = String(mins - hours * 60).padStart(2, "0");
+            var s = String(secs - mins * 60).padStart(2, "0");
+
+            document.getElementById("timer").innerHTML =
+                '<div class="main_border">' +
+                '<div><div class="timer_group_border"><div class="timer_border">' + d.charAt(0) +
+                '</div><div class="timer_border">' + d.charAt(1) +
+                '</div></div><div class="date_text">DAY</div></div>' +
+
+                '<div class="date_slice"> : </div>' +
+
+                '<div><div class="timer_group_border"><div class="timer_border">' + h.charAt(0) +
+                '</div><div class="timer_border">' + h.charAt(1) +
+                '</div></div><div class="date_text">HOURS</div></div>' +
+
+                '<div class="date_slice"> : </div>' +
+
+                '<div><div class="timer_group_border"><div class="timer_border">' + m.charAt(0) +
+                '</div><div class="timer_border">' + m.charAt(1) +
+                '</div></div><div class="date_text">MINUTES</div></div>' +
+
+                '<div class="date_slice"> : </div>' +
+
+                '<div><div class="timer_group_border"><div class="timer_border">' + s.charAt(0) +
+                '</div><div class="timer_border">' + s.charAt(1) +
+                '</div></div><div class="date_text">SECOND</div></div>' +
+                '</div>';
+        }
+        
+        // Initial call to display timer immediately
+        updateTimer();
+        setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>
